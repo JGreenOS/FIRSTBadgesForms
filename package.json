@@ -22,7 +22,10 @@
   "dependencies": {
     "axios": "^0.21.1",
     "express": "^4.17.1",
+    "fs": "0.0.1-security",
     "if-env": "^1.0.4",
-    "mongoose": "^5.12.7"
+    "mongoose": "^5.12.7",
+    "node": "^16.0.0",
+    "sequelize": "^6.6.2"
   }
 }
