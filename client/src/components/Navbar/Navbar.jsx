@@ -2,36 +2,33 @@ import React from 'react'
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import Breadcrumbs from '@material-ui/core/Breadcrumbs';
+import Link from '@material-ui/core/Link';
+// import Navbar from 'react-bootstrap/Navbar';
 import './style.css'
 
-
+function handleClick(event) {
+    event.preventDefault();
+    console.info('You clicked a breadcrumb.');
+}
+    
 export default function Navbar() {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-    
     return (
-        <div>
-        <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-            Issuer Menu
+        <Breadcrumbs aria-label="breadcrumb">
+        <Link to="/" color="inherit" onClick={handleClick} component={Link} >
+            Sign In
+        </Link>
+        <Button color="inherit"  component={Link} to="/form">
+            Form
         </Button>
-        <Menu
-            id="simple-menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-        >
-            <MenuItem onClick={handleClose}>Team Profile</MenuItem>
-            <MenuItem onClick={handleClose}>Issuer Form</MenuItem>
-            <MenuItem onClick={handleClose}>Stats</MenuItem>
-        </Menu>
-        </div>
+        <Link color="inherit" to="/team" onClick={handleClick} component={Link}>
+            Team Profile
+        </Link>
+        <Link color="inherit" to="/stats"  >
+            Stats
+        </Link>
+        </Breadcrumbs>
     );
-    }
+}
+
+//Currently the handleclick event needs to be updating the 
