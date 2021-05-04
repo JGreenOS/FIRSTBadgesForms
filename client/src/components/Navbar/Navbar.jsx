@@ -1,7 +1,7 @@
 import React from 'react'
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+// import Button from '@material-ui/core/Button';
+// import Menu from '@material-ui/core/Menu';
+// import MenuItem from '@material-ui/core/MenuItem';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Link from '@material-ui/core/Link';
 // import Navbar from 'react-bootstrap/Navbar';
@@ -15,18 +15,18 @@ function handleClick(event) {
 export default function Navbar() {
     return (
         <Breadcrumbs aria-label="breadcrumb">
-        <Link to="/" color="inherit" onClick={handleClick} component={Link} >
-            Sign In
-        </Link>
-        <Button color="inherit"  component={Link} to="/form">
-            Form
-        </Button>
-        <Link color="inherit" to="/team" onClick={handleClick} component={Link}>
-            Team Profile
-        </Link>
-        <Link color="inherit" to="/stats"  >
-            Stats
-        </Link>
+            <Link to="/" color="inherit" onClick={handleClick} component={Link} >
+                Sign In
+            </Link>
+            <Link color="inherit" onClick={handleClick}  component={Link} to="/form">
+                Form
+            </Link>
+            <Link color="inherit" to="/team" onClick={handleClick} component={Link}>
+                Team Profile
+            </Link>
+            <Link color="inherit" to="/stats" onClick={handleClick} component={Link} >
+                Stats
+            </Link>
         </Breadcrumbs>
     );
 }
