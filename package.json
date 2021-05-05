@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "bootstrap": "^5.0.0",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "if-env": "^1.0.4",
@@ -28,6 +29,7 @@
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "node": "^16.0.0",
+    "react-router-dom": "^5.2.0",
     "sequelize": "^6.6.2"
   }
 }
