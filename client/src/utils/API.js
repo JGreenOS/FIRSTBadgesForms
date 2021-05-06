@@ -1,6 +1,6 @@
 import axios from "axios";
 
-
+// This is a rough sudo code of the api calls that we will need
 
 export default {
   // Gets all students for the given team number
