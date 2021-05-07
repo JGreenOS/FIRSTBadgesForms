@@ -1,13 +1,18 @@
 import React from 'react';
-import Navbar from '../components/Navbar/Navbar.jsx'
-import { Container } from "../components/Grid"
+import Navbar from '../components/Navbar/Navbar.jsx';
+import { Container, Row, Col } from "../components/Grid";
+import Login from '../components/Login/Login.jsx';
 
 function SignIn() {
     return (
         <div>
             <Navbar />
             <Container fluid>
-                <p>This is our landing page. Users will sign in first</p>
+                <Row>
+                    <Col size="md-4">
+                        <Login />
+                    </Col>
+                </Row>
             </Container>
         </div>
     );
