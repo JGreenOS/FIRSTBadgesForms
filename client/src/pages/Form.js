@@ -10,9 +10,11 @@ function Form () {
         <div>
             <Navbar />
             <Container fluid>
-            <label for="exampleFormControlTextarea2"><strong>Please enter the email address of the student you wish to award the badge to.</strong></label>
+            <div className="form-group mb-3">
+            <label for="exampleFormControlTextarea2"><strong>Please enter the email address of the student you wish to award the badge to:</strong></label>
             <input type="email" className="form-control" id="exampleFormControlInput1"
             placeholder="name@example.com"/>
+            </div>
                 <LeadershipOne />
                 <br />
                 <LeadershipTwo />
