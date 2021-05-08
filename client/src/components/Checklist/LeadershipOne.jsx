@@ -21,7 +21,10 @@ function LeadershipOne() {
                 <label for="L1.5">Requirement Leadership1.5 (L1.5)</label><br/>
 
             </ul>
+
+            <button>Update this student's requirements in the database</button>
             <button>Send Leadership 1 badge to student</button>
+
         </div>
     );
 }
