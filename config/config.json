@@ -1,9 +1,10 @@
 {
   "development": {
-    "username": "ijytw5ir176sworr",
-    "password": "vy75d8k2rjmhxv2d",
-    "database": "vi4kwyfe18vtp6vf",
-    "host": "y5svr1t2r5xudqeq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "process.env.DEV_UN",
+    "password": "process.env.DEV_PW",
+    "database": "process.env.DEV_DB",
+    "host": "127.0.0.1",
+    "port": 3306,
     "dialect": "mysql"
   },
   "test": {
