@@ -8,6 +8,7 @@ function TeamProfile() {
             <Navbar />
             <Container fluid>
                 <p>Here would be the list of kids that an issuer can give an assertion to.</p>
+                <p> ToDo: return list of students</p>
             </Container>
         </div>
     );

@@ -6,11 +6,13 @@ import Form from './pages/Form';
 import TeamProfile from './pages/TeamProfile';
 import Stats from './pages/Stats';
 import SignIn from './pages/SignIn';
+import Footer from './components/Footer/Footer.jsx';
 
 
 class App extends Component {
   render() {
   return (
+    <>
     <Router>
       <div>
         <Switch>
@@ -21,6 +23,10 @@ class App extends Component {
         </Switch>
       </div>
     </Router>
+    
+    <Footer />
+
+    </>
   );
 }
 }

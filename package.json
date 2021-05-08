@@ -30,6 +30,7 @@
     "mysql2": "^2.2.5",
     "node": "^16.0.0",
     "react-bootstrap": "^1.5.2",
+    "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0",
     "sequelize": "^6.6.2"
   }
