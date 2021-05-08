@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar/Navbar.jsx'
 import { Container, Row, Col } from "../components/Grid";
 import LeadershipOne from '../components/Checklist/LeadershipOne.jsx'
 import LeadershipTwo from '../components/Checklist/LeadershipTwo.jsx'
+import AddStudents from '../components/AddStudents/AddStudents.jsx'
+
 
 function Form () {
     return (
@@ -20,6 +22,8 @@ function Form () {
                 <LeadershipOne />
                 <br />
                 <LeadershipTwo />
+                <br />
+                <AddStudents />
             </Container>
         </div>
     )
