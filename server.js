@@ -15,6 +15,11 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
+require('./routes/html_routes.js')(app);
+require('./routes/att_api_routes.js')(app);
+require('./routes/student_api_routes.js')(app);
+require('./routes/passport_api_routes')(app);
+
 
 // Start the API server
 db.sequelize.sync().then(() => {
