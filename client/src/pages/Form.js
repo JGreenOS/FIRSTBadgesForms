@@ -9,7 +9,7 @@ import AddStudents from '../components/AddStudents/AddStudents.jsx'
 
 function Form () {
     return (
-        <div>
+        <>
             <Navbar />
             <Container fluid>
                 <Row>
@@ -25,7 +25,7 @@ function Form () {
                 <br />
                 <AddStudents />
             </Container>
-        </div>
+        </>
     )
 }
 
