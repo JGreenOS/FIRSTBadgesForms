@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
           len: [1, 30],
         },
       },
-      team: {
+      team_number: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {

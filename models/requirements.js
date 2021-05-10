@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     'Requirements',
     {
       id: {
+        primaryKey: true,
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
