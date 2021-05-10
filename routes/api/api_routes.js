@@ -1,9 +1,10 @@
-const db = require('../models');
+const { sequelize } = require('../../models');
+const db = require('../../models');
 
 module.exports = (app) => {
   //Adding a student to the Student Info
   //POST
-  app.post('???', (req, res) => {
+  app.post('form/newstudent', (req, res) => {
     console.log(req.body);
     db.StudentInfo.create({
       first_name: req.body.first_name,
@@ -13,7 +14,7 @@ module.exports = (app) => {
     }).then((stuInfoPost) => res.json(stuInfoPost));
   });
 
-  app.post('???', (req, res) => {
+  app.post('form/sturequirements', (req, res) => {
     console.log(req.body);
     db.StudentReqRecords.create({
       email: req.body.email,
@@ -23,13 +24,15 @@ module.exports = (app) => {
     }).then((stuReqPost) => res.json(stuReqPost));
   });
 
-  app.get('???', (req, res) => {
+  app.get('/teamprofile', (req, res) => {
     db.sequelize
       .query(
-        `SELECT students.first_name, students.last_name, badge.id, mentor.team FROM students
-LEFT JOIN badge on students.badge_id = badge.id 
-LEFT JOIN mentor on mentor.team = students.team_number LIMIT 0, 1000`
-      )({})
+        `SELECT student_info.first_name, student_info.last_name, req_id, student_info.team_number
+        FROM stu_req_records
+        INNER JOIN student_info ON stu_req_records.email=student_info.email
+        INNER JOIN mentor ON student_info.team_number=mentor.team_number`,
+        { type: sequelize.QueryTypes.SELECT }
+      )
       .then((reqPost) => {
         const hbsObject = {
           att: reqPost,

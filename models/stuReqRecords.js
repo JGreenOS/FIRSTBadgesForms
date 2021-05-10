@@ -1,15 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
   const StudentReqRecords = sequelize.define(
-    'StudentReqRecords',
+    'Stu_req_records',
     {
       email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1, 30],
-        },
-      },
-      team_number: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
