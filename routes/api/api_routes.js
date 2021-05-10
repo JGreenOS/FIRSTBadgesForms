@@ -4,7 +4,7 @@ const db = require('../../models');
 module.exports = (app) => {
   //Adding a student to the Student Info
   //POST
-  app.post('form/newstudent', (req, res) => {
+  app.post('/form/newstudent', (req, res) => {
     console.log(req.body);
     db.StudentInfo.create({
       first_name: req.body.first_name,
@@ -14,17 +14,17 @@ module.exports = (app) => {
     }).then((stuInfoPost) => res.json(stuInfoPost));
   });
 
-  app.post('form/sturequirements', (req, res) => {
+  app.post('/form/sturequirements', (req, res) => {
     console.log(req.body);
     db.StudentReqRecords.create({
       email: req.body.email,
-      team_number: req.body.team_number,
       req_id: req.body.req_id,
-      email: req.body.email,
+      date_received: req.body.date_received,
     }).then((stuReqPost) => res.json(stuReqPost));
   });
 
   app.get('/teamprofile', (req, res) => {
+    console.log('Inside GET route');
     db.sequelize
       .query(
         `SELECT student_info.first_name, student_info.last_name, req_id, student_info.team_number

@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         type: DataTypes.INTEGER,
         allowNull: false,
+        autoIncrement: true,
         validate: {
           len: [1, 30],
         },
