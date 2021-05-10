@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 // const router = require("express").Router();
 // //Update the controller below 
@@ -7,6 +8,7 @@
 // router.route("/team")
 //   .get(studentController.findAll)
 //   .post(studentController.create);
+
 
 // // Matches with "/api/books/:id"
 // router
