@@ -1,10 +1,12 @@
 const { sequelize } = require('../../models');
 const db = require('../../models');
+const passport = require('../config/passport');
+
 
 module.exports = (app) => {
-  //Adding a student to the Student Info
   //POST
-  app.post('/form/newstudent', (req, res) => {
+  //Add new student
+  app.post('/api/form/newstudent', (req, res) => {
     console.log(req.body);
     db.StudentInfo.create({
       first_name: req.body.first_name,
@@ -14,7 +16,7 @@ module.exports = (app) => {
     }).then((stuInfoPost) => res.json(stuInfoPost));
   });
 
-  app.post('/form/sturequirements', (req, res) => {
+  app.post('/api/form/sturequirements', (req, res) => {
     console.log(req.body);
     db.StudentReqRecords.create({
       email: req.body.email,
@@ -23,8 +25,14 @@ module.exports = (app) => {
     }).then((stuReqPost) => res.json(stuReqPost));
   });
 
-  app.get('/teamprofile', (req, res) => {
-    console.log('Inside GET route');
+  //GET
+  //search for a student and to list  (to update badge requirements)
+  app.get('/api/form/getstudent', (req, res) => {
+    db.StudentReqRecords.findAll({}).then((stuGet) => res.json(stuGet));
+  });
+
+  //Team Profile- will be displayed in a table.
+  app.get('/api/teamprofile', (req, res) => {
     db.sequelize
       .query(
         `SELECT student_info.first_name, student_info.last_name, req_id, student_info.team_number
@@ -39,5 +47,14 @@ module.exports = (app) => {
         };
         res.send(hbsObject);
       });
+  });
+
+  //UPDATE
+  app.put('/api/updatereqs', (req, res) => {
+    db.StudentReqRecords.update(req.body, {
+      where: {
+        req_id: req.body.req_id,
+      },
+    }).then((updateReq) => res.json(updateReq));
   });
 };
