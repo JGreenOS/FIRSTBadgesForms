@@ -13,7 +13,7 @@ function Form () {
             <Navbar />
             <Container fluid>
                 <Row>
-                    <Col size="md-4">
+                    <Col size="md-8">
                         <label for="exampleFormControlTextarea2"><strong>Please enter the email address of the student you wish to award the badge to:</strong></label>
                         <input type="email" className="form-control" id="exampleFormControlInput1"
                         placeholder="name@example.com"/>
@@ -23,7 +23,13 @@ function Form () {
                 <br />
                 <LeadershipTwo />
                 <br />
-                <AddStudents />
+                <Row>
+                    <Col size="md-12" className="form-control" >
+                    
+                    <AddStudents />
+                    </Col>
+                
+                </Row>
             </Container>
         </>
     )

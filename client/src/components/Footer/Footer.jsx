@@ -7,18 +7,17 @@ function Footer() {
 
     return (
         <>
-        <footer style={{
-
-            height:"500px",
-            backgroundSize:"auto",
-            backgroundRepeat: "no-repeat",
-            backgroundColor:"lightGray",
-            backgroundImage: `url(${headerimage})` 
+        <footer className="footer" style={{
+        backgroundImage: `url(${headerimage})`,
+            
             
         }}>
 
-            <a id="button" href={`mailto:jsciteach@gmail.com`}>Email me</a>
-            <a id="button" href={"https://badgr.io"}>Go to Badgr</a>
+            <a id="button" className="btn" href={`mailto:jsciteach@gmail.com`} target="_">Get Help Via Email</a>
+            <a id="button" className="btn" href={"https://badgr.io"}
+            target="_">Go to Badgr</a>
+            <a id="button" className="btn" href={"https://firstbadges.com"}
+            target="_">Go to FIRSTBadges.com</a>
             
         </footer>
         </>

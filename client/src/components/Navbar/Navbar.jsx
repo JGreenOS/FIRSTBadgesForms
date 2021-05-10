@@ -5,7 +5,7 @@ import './style.css'
 export default function Navbar() {
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand" href=".">
                 <h1>Badges on Demand!</h1>
             </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse"

@@ -1,6 +1,6 @@
 import  { useState } from "react";
 import Axios from "axios";
-
+import "./style.css";
 
 function StudentForm () {
     const [first_name, setFN] = useState("");
@@ -29,32 +29,34 @@ function StudentForm () {
 };
 
 return (
-    <div>
+    <div className="form">
+        <h3><strong>Use this form to add a student to your team's list </strong></h3>
+        <div>
         <label>First Name</label>
         <input type="text"
         onChange={(event) => {
             setFN(event.target.value);
         }}
-        />
-
+        /></div>
+<div>
         <label>Last Name</label>
         <input type="text" onChange={(event) => {
             setLN(event.target.value);
         }}
-        />
-
+        /></div>
+<div>
         <label>Student Email Address</label>
         <input type="text" onChange={(event) => {
             setEmail(event.target.value);
         }}
-        />
-
+        /></div>
+<div>
         <label> Team Number</label>
         <input type="number" onChange={(event) => {
             setTeamNum(event.target.value);
         }}
-        />
-        <button onClick={saveStudent}>Save Student</button>
+        /></div>
+        <button className="button" onClick={saveStudent}>Save Student</button>
 
     </div>
 )
