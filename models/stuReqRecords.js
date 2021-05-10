@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const StudentReqRecords = sequelize.define(
-    'Stu_req_records',
+    'StudentReqRecords',
     {
       email: {
         type: DataTypes.STRING,

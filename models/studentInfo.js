@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const StudentInfo = sequelize.define(
-    'Student_info',
+    'StudentInfo',
     {
       first_name: {
         type: DataTypes.STRING,
@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       email: {
         type: DataTypes.STRING,
         allowNull: false,
+        isEmail: true,
         validate: {
           len: [1, 30],
         },
