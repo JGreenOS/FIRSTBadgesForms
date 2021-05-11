@@ -6,7 +6,7 @@ import './style.css';
 
 function Login() {
     return (
-            <Form>
+            <Form className="login-form">
                 <Form.Group controlId="formGroupEmail">
                     <Form.Label>Registered Coach/Mentor Email</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" />
