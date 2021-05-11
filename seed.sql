@@ -31,6 +31,7 @@ CREATE TABLE stu_req_records(
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 email VARCHAR(30), 
 req_id INT,
+req_id_complete BOOLEAN NOT NULL DEFAULT 0,
 CONSTRAINT email_fk FOREIGN KEY(email) REFERENCES student_info(email) ON DELETE CASCADE,
 date_received VARCHAR(30)
 );
