@@ -1,6 +1,6 @@
 const { sequelize } = require('../../models');
 const db = require('../../models');
-const passport = require('../config/passport');
+//const passport = require('../config/passport');
 
 
 module.exports = (app) => {
