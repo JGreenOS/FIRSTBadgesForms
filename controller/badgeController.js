@@ -1,1 +1,0 @@
-// Controller for Badges, unsure if needed right now
