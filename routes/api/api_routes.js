@@ -1,7 +1,6 @@
 const { sequelize } = require('../../models');
 const db = require('../../models');
-const passport = require('../config/passport');
-
+const passport = require('passport');
 
 module.exports = (app) => {
   //POST
@@ -28,17 +27,21 @@ module.exports = (app) => {
   //GET
   //search for a student and to list  (to update badge requirements)
   app.get('/api/form/getstudent', (req, res) => {
-    db.StudentReqRecords.findAll({}).then((stuGet) => res.json(stuGet));
+    db.StudentReqRecords.findOne({
+      where: {
+        email: req.params.email,
+      },
+    }).then((stuGet) => res.json(stuGet));
   });
 
   //Team Profile- will be displayed in a table.
   app.get('/api/teamprofile', (req, res) => {
     db.sequelize
       .query(
-        `SELECT student_info.first_name, student_info.last_name, req_id, student_info.team_number
-        FROM stu_req_records
-        INNER JOIN student_info ON stu_req_records.email=student_info.email
-        INNER JOIN mentor ON student_info.team_number=mentor.team_number`,
+        `SELECT studentinfo.first_name, studentinfo.last_name, req_id, studentinfo.team_number
+        FROM stureqrecords
+        INNER JOIN studentinfo ON stureqrecords.email=studentinfo.email
+        INNER JOIN mentor ON studentinfo.team_number=mentor.team_number`,
         { type: sequelize.QueryTypes.SELECT }
       )
       .then((reqPost) => {
@@ -56,5 +59,39 @@ module.exports = (app) => {
         req_id: req.body.req_id,
       },
     }).then((updateReq) => res.json(updateReq));
+  });
+
+  //PASSPORT LOGIN LOGOUT
+  app.post('/api/login', passport.authenticate('local'), function (req, res) {
+    console.log(req);
+    res.json(req.user);
+  });
+
+  // app.post('/api/login', function (req, res) {
+  //   const username = req.body.username;
+  //   db.User.findOne({
+  //     where: {
+  //       email: username,
+  //     },
+  //   }).then(function (dbUser) {
+  //     console.log(dbUser);
+  //   });
+  // });
+
+  app.get('/logout', function (req, res) {
+    req.logout();
+    res.redirect('/');
+  });
+
+  //USER DATA ONCE LOGGED IN
+  app.get('/api/userdata', function (req, res) {
+    if (!req.user) {
+      res.json({});
+    } else {
+      res.json({
+        email: req.user.email,
+        id: req.user.id,
+      });
+    }
   });
 };
