@@ -18,6 +18,7 @@ app.use(function (req, res, next) {
 const PORT = process.env.PORT || 8080;
 
 //middleware
+//passport credentials
 
 const LocalStrategy = require('passport-local').Strategy;
 
@@ -31,7 +32,6 @@ passport.deserializeUser(function (obj, cb) {
 
 passport.use(
   new LocalStrategy(function (username, password, done) {
-    
     db.User.findOne({
       where: {
         email: username,
