@@ -61,23 +61,27 @@ module.exports = (app) => {
     }).then((updateReq) => res.json(updateReq));
   });
 
-  //PASSPORT LOGIN LOGOUT
+  //PASSPORT SIGN IN LOGIN LOGOUT
+  //SIGNUP
+  app.post('/api/signup', function (req, res) {
+    console.log(req.body);
+    db.User.create({
+      email: req.body.email,
+      password: req.body.password,
+    })
+      .then(function () {
+        res.json('done');
+      })
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  });
+  //LOGIN
   app.post('/api/login', passport.authenticate('local'), function (req, res) {
-    console.log(req);
     res.json(req.user);
   });
 
-  // app.post('/api/login', function (req, res) {
-  //   const username = req.body.username;
-  //   db.User.findOne({
-  //     where: {
-  //       email: username,
-  //     },
-  //   }).then(function (dbUser) {
-  //     console.log(dbUser);
-  //   });
-  // });
-
+  //LOGOUT
   app.get('/logout', function (req, res) {
     req.logout();
     res.redirect('/');
