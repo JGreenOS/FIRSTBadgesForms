@@ -1,65 +1,84 @@
-import React from 'react';
+import React, { useState, Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 import './style.css';
 
-function StudentForm (props) {
+class AddStudents extends Component{
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            first_name: '',
+            last_name: '',
+            email: '',
+            team_number: ''
+        }
+    }
+    
+        handleChange = (event) => {
+        console.log(event.target.value);
+        this.setState({ ...this.state, [event.target.name]: event.target.value });
+      };
+    
+       handleSubmit = (event) => {
+        console.log(this.state);
+        const userData = {
+          first_name: this.state.first_name,
+          last_name: this.state.last_name,
+          email: this.state.email,
+          team_number: this.state.team_number
+        };
+        console.log(userData);
+        axios
+          .post('http://localhost:8080/api/form/newstudent', {
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
+            email: this.state.email,
+            team_number: this.state.team_number
+          })
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((err) => console.log(err));
+
+          event.preventDefault();
+          this.setState({
+            first_name:'',
+            last_name:'',
+            email: '',
+            team_number: ''
+        })
+      };
+    render() {
     return (
-        // <form onSubmit={(e) => {signMeUp(e)}}>
-        //     <div className="form">
-        //         <h3><strong>Use this form to add a student to your team's list </strong></h3>
-        //         <div>
-        //         <label>First Name</label>
-        //         <input type="text" name="first_name" id='first_name'
-        //         // onChange={handleInputChange}
-        //         /></div>
-        //     <div>
-        //         <label>Last Name</label>
-        //         <input type="text" name="last_name" id='last_name'
-        //         // onChange={handleInputChange}
-        //         /></div>
-        //     <div>
-        //         <label>Student Email Address</label>
-        //         <input type="text" name="email" id='email'
-        //         // onChange={handleInputChange}
-        //         /></div>
-        //     <div>
-        //         <label> Team Number</label>
-        //         <input type="number" name="team_number" id='team_number'
-        //         // onChange={handleInputChange}
-        //         /></div>
-        //         <button type="submit" className="button" 
-        //         // onClick={handleFormSubmit} 
-        //         // disabled={!(formObject.first_name && formObject.last_name && formObject.email && formObject.team_number)}
-        //         >Save Student</button>
-
-        //     </div>
-        // </form>
-        <Form className='add-student-form' onSubmit={props.handleSubmit}>
+        <Form className='add-student-form' onSubmit={this.handleSubmit}>
             <Form.Group placeholder="First name" controlId='formGroupFirstName'>
                 <Form.Label>First Name</Form.Label>
                 <Form.Control
-                onChange={props.handleChange}
+                onChange={this.handleChange}
                 type='first_name'
                 name='first_name'
+                value={this.state.first_name}
                 placeholder='First Name'
                 />
             </Form.Group>
             <Form.Group controlId='formGroupLastName'>
                 <Form.Label>Last Name</Form.Label>
                 <Form.Control
-                onChange={props.handleChange}
+                onChange={this.handleChange}
                 type='last_name'
                 name='last_name'
+                value={this.state.last_name}
                 placeholder='Last Name'
                 />
             </Form.Group>
             <Form.Group controlId='formGroupEmail'>
                 <Form.Label>Email</Form.Label>
                 <Form.Control
-                onChange={props.handleChange}
+                onChange={this.handleChange}
                 type='email'
+                value={this.state.email}
                 name='email'
                 placeholder='Enter email'
                 />
@@ -67,13 +86,15 @@ function StudentForm (props) {
             <Form.Group controlId='formGroupTeamNumber'>
                 <Form.Label>Team Number</Form.Label>
                 <Form.Control
-                onChange={props.handleChange}
+                onChange={this.handleChange}
                 type='team_number'
+                value={this.state.team_number}
                 name='team_number'
                 placeholder='Team Number'
                 />
             </Form.Group>
-            <Button type='submit' style={{ margin: '2px' }}>
+            <Button type='submit' style={{ margin: '2px' }}
+            >
                 Add student
             </Button>
         </Form>
@@ -81,4 +102,6 @@ function StudentForm (props) {
     )
 }
 
-export default StudentForm; 
+}
+
+export default AddStudents; 
