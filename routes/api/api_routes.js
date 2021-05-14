@@ -70,15 +70,16 @@ module.exports = (app) => {
       password: req.body.password,
     })
       .then(function () {
-        res.json('done');
+        res.json('Done');
       })
       .catch(function (err) {
-        res.status(401).json(err);
+        // res.status(401).json(err);
+        console.log(err);
       });
   });
   //LOGIN
   app.post('/api/login', passport.authenticate('local'), function (req, res) {
-    res.json(req.user);
+    res.json(true);
   });
 
   //LOGOUT
