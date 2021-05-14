@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar/Navbar.jsx';
 import { Container, Row, Col } from '../components/Grid';
 import Login from '../components/Login/Login.jsx';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 const SignIn = (props) => {
   const [state, setState] = useState({
@@ -11,27 +12,31 @@ const SignIn = (props) => {
   });
 
   const handleChange = (event) => {
-    console.log(event.target.value);
     setState({ ...state, [event.target.name]: event.target.value });
   };
 
+  const [redirect, setRedirect] = useState(false);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(state);
-    const userData = {
-      username: state.email,
-      password: state.password,
-    };
     axios
       .post('http://localhost:8080/api/login', {
         username: state.email,
         password: state.password,
       })
       .then((res) => {
-        res.redirect('/');
+        if (res.data === true) {
+          console.log(props);
+          props.setUser(true);
+          setRedirect(true);
+        }
       })
       .catch((err) => console.log(err));
   };
+
+  if (redirect) {
+    return <Redirect to='/team' />;
+  }
 
   return (
     <div>
