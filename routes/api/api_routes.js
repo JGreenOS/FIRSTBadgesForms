@@ -34,6 +34,14 @@ module.exports = (app) => {
     }).then((stuGet) => res.json(stuGet));
   });
 
+  app.get('/api/team/getteam', (req, res) => {
+    db.StudentInfo.findAll({
+      where: {
+        team_number: req.params.team_number,
+      },
+    }).then((stuTeam) => res.json(stuTeam));
+  });
+
   //Team Profile- will be displayed in a table.
   app.get('/api/teamprofile', (req, res) => {
     db.sequelize
