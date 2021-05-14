@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Name
+This project is a development effort for FIRST Badges located at FIRSTBadges.com to streamline the process to award badges to FIRST Robotics Competition teams. These badges are designed for participants to show their skills and competencies in a wide variety of areas encompassing STEM skills, 21st century "soft" skills and is integral to helping teams meet their goals for diversity, equity and inclusion.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The badge requirements are established by a group of mentors in Michigan and are aligned to the Michigan curriculum standards and national frameworks.
 
-## Available Scripts
+This specific project is for mentors and coaches of FRC teams, so they have a common and efficient process to award badges and provides automation of the badges.  FRC teams work under strict deadlines and this automation process will support a wider adoption of the badge process. 
 
-In the project directory, you can run:
+For more information on FIRST in Michigan, please visit www.firstinmichigan.org
+For more information on FIRST Robotics, please visit www.firstinspires.org
 
-### `npm start`
+## Description
+This is a small integrated application where a coach/mentor of an FRC team is pre-approved with credentials to the Badgr system (www.badgr.io) to award badges. The mentors access their own account and participants who are already enrolled on their FRC team. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Mentors can select the participant list and view the badge(s) in progress and update the individual badge requirements.  Once all badge requirements are completed, the mentor can award the badge through the automated connection to Badgr. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+### License
+FIRST Badges Automated Integration © 2021 by Julia Green is licensed under Attribution-NonCommercial-NoDerivatives 4.0 International 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Tech Stack
+React
+Node/Express
+Passport 
+MySQL DB
+Badgr.io API
+Chart.js
 
-### `npm run build`
+Summarized project requirements:
+1. Requires ReactJs, Node/Express, MySQL or MongoDB and user authentication.
+2. Routing
+3. Deployed to a production example
+4. Utilize 2 libraries, packages or technologies new to the developer group
+5. Polished UI
+6. Folder structure for MVC paradigm
+7. Quality coding standards
+8. Protect sensitive information with environment variables.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Visuals / Walkthrough
+Login page:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+Requirements page:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Add Students:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Student List:
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Mentor Dashboard: 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Usage
 
-### Code Splitting
+### Support
+Please contact Julia Green via email on the GitHub portal.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Roadmap
+This version is for demonstration and development purposes. A production version will be available in August 2021 for FIRST Badges mentors. 
 
-### Analyzing the Bundle Size
+Further development to this demonstration project potentially includes:
+1.  Full adminstrative portal for issuers / owners including usage reports.
+2.  Integration to Michigan Data Hub for talent based transcripts.
+3.  Spreadsheet view for updating badge requirements for multiple students.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Authors and Acknowledgment
+This project is a group capstone experience from the Trilogy Full Stack Development Bootcamp offered by Michigan State University.
 
-### Making a Progressive Web App
+Primary developers:
+Matthew Duffield
+Moe Kassem
+Julia Green
+Jason West
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Contributing
+If you would like to contribute to this work, please initiate a pull request.  To join the FIRST Badges initiative, please email Julia Green from the Github profile above. 
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
