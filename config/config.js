@@ -1,8 +1,8 @@
 module.exports = {
   development: {
-    username: process.env.DEV_UN,
-    password: process.env.DEV_PW,
-    database: process.env.DEV_DB,
+    username: 'root',
+    password: 'Sondos1!#',
+    database: 'vi4kwyfe18vtp6vf',
     host: '127.0.0.1',
     port: 3306,
     dialect: 'mysql',
