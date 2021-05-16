@@ -24,9 +24,11 @@ function Login(props) {
           placeholder='Password'
         />
       </Form.Group>
-      <Button type='submit' style={{ margin: '2px' }}>
-        Login to Badge Award Portal
-      </Button>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <Button type='submit' style={{ margin: '2px' }}>
+          Login to Badge Award Portal
+        </Button>
+      </div>
     </Form>
   );
 }

@@ -93,7 +93,7 @@ module.exports = (app) => {
   //LOGOUT
   app.get('/logout', function (req, res) {
     req.logout();
-    res.redirect('/');
+    res.send('Logout Successful');
   });
 
   //USER DATA ONCE LOGGED IN
