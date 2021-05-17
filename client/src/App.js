@@ -14,8 +14,9 @@ import PriNavbar from './components/PriNavbar/PriNavbar';
 import PubNavbar from './components/PubNavbar/PubNavbar';
 
 const App = (props) => {
-  const [user, setUser] = useState(false);
-  console.log(user);
+  const userLoggedIn = localStorage.getItem('user');
+  const [user, setUser] = useState(userLoggedIn);
+  console.log(`user is logged in? ${user}`);
 
   function Header() {
     if (user) {

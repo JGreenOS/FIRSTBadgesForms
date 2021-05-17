@@ -10,6 +10,7 @@ export default function PriNavbar(props) {
   const handleLogout = (event) => {
     axios.get('http://localhost:8080/logout').then((res) => {
       setRedirect(true);
+      localStorage.setItem('user', false);
       props.setUser(false);
     });
   };

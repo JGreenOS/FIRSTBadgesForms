@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col } from '../components/Grid';
 import Login from '../components/Login/Login.jsx';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 const SignIn = (props) => {
   const [state, setState] = useState({
@@ -27,6 +27,7 @@ const SignIn = (props) => {
         if (res.data === true) {
           console.log(props);
           props.setUser(true);
+          localStorage.setItem('user', true)
           setRedirect(true);
         }
       })
@@ -61,6 +62,12 @@ const SignIn = (props) => {
             </Col>
             <Col size='sm-12'>
               <Login handleChange={handleChange} handleSubmit={handleSubmit} />
+            </Col>
+            <Col size='sm-12'>
+              <h5 style={{ textAlign: 'center' }}>
+                {' '}
+                No account yet? <Link to='/newuser'>Signup Here!</Link>
+              </h5>
             </Col>
           </Row>
         </Container>
