@@ -9,15 +9,27 @@ import Stats from './pages/Stats';
 import SignIn from './pages/SignIn';
 import Footer from './components/Footer/Footer.jsx';
 import NewUser from './pages/Newuser';
+import LoggedOut from './pages/LoggedOut';
+import PriNavbar from './components/PriNavbar/PriNavbar';
+import PubNavbar from './components/PubNavbar/PubNavbar';
 
 const App = (props) => {
-  const [user, setUser] = useState(false);
-  console.log(user);
+  const userLoggedIn = localStorage.getItem('user');
+  const [user, setUser] = useState(userLoggedIn);
+  console.log(`user is logged in? ${user}`);
+
+  function Header() {
+    if (user) {
+      return <PriNavbar setUser={setUser} />;
+    }
+    return <PubNavbar />;
+  }
 
   return (
     <>
       <Router>
-        <div>
+        <Header />
+        <div style={{ marginBottom: '75px' }}>
           <Switch>
             <Route
               exact
@@ -33,10 +45,10 @@ const App = (props) => {
               component={TeamProfile}
             />
             <ProtectedRoute exact path='/stats' user={user} component={Stats} />
+            <Route exact path='/logout' component={LoggedOut} />
           </Switch>
         </div>
       </Router>
-
       <Footer />
     </>
   );

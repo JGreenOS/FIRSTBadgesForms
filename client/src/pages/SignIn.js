@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar/Navbar.jsx';
 import { Container, Row, Col } from '../components/Grid';
 import Login from '../components/Login/Login.jsx';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 const SignIn = (props) => {
   const [state, setState] = useState({
@@ -28,6 +27,7 @@ const SignIn = (props) => {
         if (res.data === true) {
           console.log(props);
           props.setUser(true);
+          localStorage.setItem('user', true)
           setRedirect(true);
         }
       })
@@ -39,36 +39,40 @@ const SignIn = (props) => {
   }
 
   return (
-    <div>
-      <Navbar />
-      <Container fluid>
-        <Row>
-          {' '}
-          <h2 style={{ margin: 'auto', padding: '20px' }}>
-            Welcome to the FIRST Badges Student Award Portal
-          </h2>{' '}
-        </Row>
-        <Row></Row>
-        <Row>
-          <Col size='md-4'>
-            <Login handleChange={handleChange} handleSubmit={handleSubmit} />
-          </Col>
-          <Col size='md-8'>
-            <p>
-              This area is for registered FIRST Robotics Competition coaches to
-              track, manage and award digital badges to participants on their
-              FRC team.
-            </p>
-            <p>
-              {' '}
-              If you need to register for a login or to have a coach/mentor
-              password reset, please use the get help via email link below with
-              your team information.
-            </p>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <>
+      <div>
+        <Container fluid>
+          <Row>
+            <h2 style={{ margin: 'auto', padding: '20px' }}>
+              Welcome to the FIRST Badges Student Award Portal
+            </h2>{' '}
+          </Row>
+          <Row>
+            <Col size='sm-12'>
+              <p style={{ textAlign: 'center' }}>
+                This area is for registered FIRST Robotics Competition coaches
+                to track, manage and award digital badges to participants on
+                their FRC team.
+              </p>
+              <p style={{ textAlign: 'center' }}>
+                If you need to register for a login or to have a coach/mentor
+                password reset, please use the get help via email link below
+                with your team information.
+              </p>
+            </Col>
+            <Col size='sm-12'>
+              <Login handleChange={handleChange} handleSubmit={handleSubmit} />
+            </Col>
+            <Col size='sm-12'>
+              <h5 style={{ textAlign: 'center' }}>
+                {' '}
+                No account yet? <Link to='/newuser'>Signup Here!</Link>
+              </h5>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    </>
   );
 };
 
