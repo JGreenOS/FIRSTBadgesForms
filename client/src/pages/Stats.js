@@ -1,18 +1,17 @@
 import React from 'react';
-import Navbar from '../components/Navbar/Navbar.jsx'
-import { Container } from "../components/Grid"
-import Chart from '../components/Chart/Chart.js'
+import { Container } from '../components/Grid';
+import Chart from '../components/Chart/Chart.js';
 
 function Stats() {
-    return (
-    <div>
-        <Navbar />
+  return (
+    <>
+      <div>
         <Container fluid>
-            <Chart />
+          <Chart />
         </Container>
-    </div>
-        
-    );
+      </div>
+    </>
+  );
 }
 
 export default Stats;

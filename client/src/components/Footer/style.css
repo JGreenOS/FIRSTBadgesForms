@@ -1,20 +1,21 @@
 .btn {
-    font: bold 20px Roboto;
-    background-color: green;
-    color: white;
-    margin: 20px;
-    border-top: 1px solid #CCCCCC;
-    border-right: 1px solid #333333;
-    border-bottom: 1px solid #333333;
-    border-left: 1px solid #CCCCCC;
-  }
+  font: bold 12px Roboto;
+  background-color: green;
+  color: white;
+  margin: 20px;
+  border-top: 1px solid #cccccc;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #cccccc;
+}
 
-
- .footer{
-    margin: auto;
-    height: 500px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: lightgray;
-    
- }
+.footer {
+  margin: auto;
+  height: 75px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: lightgray;
+  position: fixed;
+  bottom: 0;
+  min-width: 100%;
+}
