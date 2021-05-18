@@ -48,10 +48,32 @@ module.exports = (app) => {
     db.sequelize
       .query(
         `SELECT studentinfo.team_number,  studentreqrecords.req_id, studentinfo.email AS email, studentinfo.first_name AS Student_First_name, studentinfo.last_name AS Student_Last_Name, requirements.badge_name AS Badge_Name
-FROM studentinfo
-JOIN studentreqrecords ON studentreqrecords.email=studentinfo.email
-JOIN requirements ON requirements.id=studentreqrecords.req_id
-WHERE studentinfo.team_number = ?`,
+        FROM studentinfo
+        JOIN studentreqrecords ON studentreqrecords.email=studentinfo.email
+        JOIN requirements ON requirements.id=studentreqrecords.req_id
+        WHERE studentinfo.team_number = ?`,
+        {
+          replacements: [teamNumber],
+          type: sequelize.QueryTypes.SELECT,
+        }
+      )
+      .then((reqPost) => {
+        const hbsObject = {
+          items: reqPost,
+        };
+        res.send(hbsObject);
+      });
+  });
+
+  app.get('/api/stats', (req, res) => {
+    const teamNumber = req.query.team_number;
+    db.sequelize
+      .query(
+        `SELECT studentreqrecords.req_id, studentinfo.first_name AS Student_First_name, studentinfo.last_name AS Student_Last_Name, requirements.badge_name AS Badge_Name
+        FROM studentinfo
+        JOIN studentreqrecords ON studentreqrecords.email=studentinfo.email
+        JOIN requirements ON requirements.id=studentreqrecords.req_id
+        WHERE studentinfo.team_number = ?`,
         {
           replacements: [teamNumber],
           type: sequelize.QueryTypes.SELECT,
