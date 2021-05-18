@@ -48,7 +48,6 @@ class Chart extends Component {
         },
       })
       .then((res) => {
-        console.log(res.data);
         const chartMaker = res.data.items
         let newLabels = [];
         chartMaker.forEach(element => {
@@ -58,7 +57,6 @@ class Chart extends Component {
             newLabels.push(element.Badge_Name)
           }
         })
-        console.log(newLabels);
 
         this.setState({
           students: res.data.items,
