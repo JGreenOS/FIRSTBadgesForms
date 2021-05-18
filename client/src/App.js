@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ProtectedRoute from '../src/components/ProtectedRoute/ProtectedRoute';
-import Form from './pages/Form';
+import StuForm from './pages/Form';
 import TeamProfile from './pages/TeamProfile';
 import Stats from './pages/Stats';
 import SignIn from './pages/SignIn';
@@ -29,7 +29,7 @@ const App = (props) => {
     <>
       <Router>
         <Header />
-        <div style={{ marginBottom: '75px' }}>
+        <div style={{ marginTop: '25px', marginBottom: '75px' }}>
           <Switch>
             <Route
               exact
@@ -37,7 +37,12 @@ const App = (props) => {
               render={(props) => <SignIn {...props} setUser={setUser} />}
             />
             <Route exact path='/newuser' component={NewUser} />
-            <ProtectedRoute exact path='/form' user={user} component={Form} />
+            <ProtectedRoute
+              exact
+              path='/form'
+              user={user}
+              component={StuForm}
+            />
             <ProtectedRoute
               exact
               path='/team'

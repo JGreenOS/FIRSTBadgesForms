@@ -29,7 +29,7 @@ module.exports = (app) => {
   app.get('/api/form/getstudent', (req, res) => {
     db.StudentReqRecords.findOne({
       where: {
-        email: req.params.email,
+        email: req.query.email,
       },
     }).then((stuGet) => res.json(stuGet));
   });
