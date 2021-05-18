@@ -1,18 +1,22 @@
-.form{
-    padding: 10px;
-    margin: 5px;
-   
+.form {
+  padding: 10px;
+  margin: 5px;
+  display: 'flex';
+  justify-content: center;
+  min-width: 250px;
 }
 
+.add-student-form {
+  width: 75%;
+}
 button {
-    font-family: Roboto;
-    font-size: 20px;
-    font-weight: 10px;
-    font-style: bold;
-    color: white;
-    background-color: green;
-    margin: 10px;
-    margin-right: 10px;
-    padding: 5px;
-    
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 10px;
+  font-style: bold;
+  color: white;
+  background-color: green;
+  margin: 10px;
+  margin-right: 10px;
+  padding: 5px;
 }

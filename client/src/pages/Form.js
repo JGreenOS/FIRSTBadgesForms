@@ -1,31 +1,62 @@
 // Page for the form page of the app
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col } from '../components/Grid';
 import LeadershipOne from '../components/Checklist/LeadershipOne.jsx';
 import LeadershipTwo from '../components/Checklist/LeadershipTwo.jsx';
 import AddStudents from '../components/AddStudents/AddStudents.jsx';
+import axios from 'axios';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
-const Form = (props) => {
+const StuForm = (props) => {
+  const [state, setState] = useState({
+    email: '',
+  });
+
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axios
+      .get('http://localhost:8080/api/form/getstudent', {
+        params: {
+          email: state.email,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setState({
+          email: res.data.email,
+        });
+      })
+      .catch((err) => console.log(err));
+    console.log(state);
+  };
+
   return (
     <>
       <Container fluid>
         <Row>
-          <Col size='md-8'>
-            <label for='exampleFormControlTextarea2'>
-              <strong>
-                Please enter the email address of the student you wish to award
-                the badge to:
-              </strong>
-            </label>
-            <input
-              type='email'
-              className='form-control'
-              id='exampleFormControlInput1'
-              placeholder='name@example.com'
-            />
-          </Col>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId='studentSearch'>
+              <Form.Control
+                onChange={handleChange}
+                value={state.value}
+                type='email'
+                name='email'
+                placeholder='Enter email'
+              />
+              <span>
+                <Button type='submit' style={{ margin: '2px' }}>
+                  Search
+                </Button>
+              </span>
+            </Form.Group>
+          </Form>
         </Row>
-        <LeadershipOne />
+        <LeadershipOne {...state} />
         <br />
         <LeadershipTwo />
         <br />
@@ -39,4 +70,4 @@ const Form = (props) => {
   );
 };
 
-export default Form;
+export default StuForm;
