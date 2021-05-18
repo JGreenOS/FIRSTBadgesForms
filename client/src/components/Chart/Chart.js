@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Bar } from "react-chartjs-2";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Table from 'react-bootstrap/Table';
 import axios from 'axios';
 
 class Chart extends Component {
@@ -52,7 +51,6 @@ class Chart extends Component {
         console.log(res.data);
         const chartMaker = res.data.items
         let newLabels = [];
-        let newData = [];
         chartMaker.forEach(element => {
           if(newLabels.includes(element.Badge_Name))
             (console.log("Duplicate:" , element.Badge_Name));
