@@ -17,7 +17,7 @@ class Chart extends Component {
         datasets: [
           {
             label: "Students",
-            data: [1, 2, 3, 4, 5],
+            data: [],
             backgroundColor: [
               "rgba(255, 99, 132, 0.6)",
               "rgba(54, 162, 235, 0.6)",
@@ -52,8 +52,13 @@ class Chart extends Component {
         console.log(res.data);
         const chartMaker = res.data.items
         let newLabels = [];
+        let newData = [];
         chartMaker.forEach(element => {
-          newLabels.push(element.Badge_Name)
+          if(newLabels.includes(element.Badge_Name))
+            (console.log("Duplicate:" , element.Badge_Name));
+          else {
+            newLabels.push(element.Badge_Name)
+          }
         })
         console.log(newLabels);
 
@@ -64,7 +69,7 @@ class Chart extends Component {
             datasets: [
               {
                 label: "Students",
-                data: [1, 2, 3, 4, 5],
+                data: [5, 3, 2],
                 backgroundColor: [
                   "rgba(255, 99, 132, 0.6)",
                   "rgba(54, 162, 235, 0.6)",

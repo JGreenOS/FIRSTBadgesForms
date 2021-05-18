@@ -69,7 +69,7 @@ module.exports = (app) => {
     const teamNumber = req.query.team_number;
     db.sequelize
       .query(
-        `SELECT studentreqrecords.req_id, studentinfo.first_name AS Student_First_name, studentinfo.last_name AS Student_Last_Name, requirements.badge_name AS Badge_Name
+        `SELECT studentreqrecords.req_id, studentinfo.first_name AS Student_First_name, studentinfo.last_name AS Student_Last_Name, requirements.badge_name AS Badge_Name, studentreqrecords.date_received as Date_received 
         FROM studentinfo
         JOIN studentreqrecords ON studentreqrecords.email=studentinfo.email
         JOIN requirements ON requirements.id=studentreqrecords.req_id
