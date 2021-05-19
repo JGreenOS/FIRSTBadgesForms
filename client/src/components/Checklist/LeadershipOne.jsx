@@ -1,97 +1,104 @@
-import React, { useReducer, useState } from 'react';
-
-const formReducer = (state, event) => {
-  return {
-    ...state,
-    [event.name]: event.value,
-  };
-};
+import React, { useState } from 'react';
+import axios from 'axios';
+import './style.css';
 
 function LeadershipOne(props) {
-  const [formData, setFormData] = useReducer(formReducer, {});
+  const [state, setState] = useState({
+    req_ids: [],
+  });
   const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     setSubmitting(true);
-
-    setTimeout(() => {
-      setSubmitting(false);
-    }, 3000);
+    state.req_ids.forEach((req_id) => {
+      axios
+        .post('http://localhost:8080/api/form/sturequirements', {
+          email: props.email,
+          req_id: req_id,
+        })
+        .then((res) => {
+          console.log(res);
+          setSubmitting(false);
+        })
+        .catch((err) => console.log(err));
+    });
   };
 
   const handleChange = (event) => {
-    const isCheckbox = event.target.type === 'checkbox';
-    setFormData({
-      name: event.target.name,
-      value: isCheckbox ? event.target.checked : event.target.value,
-    });
+    const newReqId = event.target.value;
+    let newReqIds = state.req_ids;
+    // if indexOf is -1, item is not in the array => add to array
+    if (newReqIds.indexOf(newReqId) === -1) {
+      newReqIds.push(newReqId);
+    } else {
+      newReqIds.splice(newReqIds.indexOf(newReqId), 1);
+    }
+    setState({ req_ids: newReqIds });
   };
 
   return (
     <div>
-      <h4>
+      <h4 className='email-prop'>
         <b>Student Email: {props.email}</b>
       </h4>
-      {submitting && <div>Submitting Form...</div>} You are submitting the
-      following:
-      <ul>
-        {Object.entries(formData).map(([name, value]) => (
-          <li key={name}>
-            <strong>{name}</strong>: {value.toString()}{' '}
-          </li>
-        ))}
-      </ul>
-      <form onSubmit={handleSubmit}>
+      <form
+        style={{ textAlign: 'center', maxWidth: '400px' }}
+        onSubmit={handleSubmit}
+      >
+        <div>
+          <h4>Leadership</h4>
+        </div>
         <input
           type='checkbox'
           id='L1.1'
           name='L1.1'
-          value='1'
+          value='11'
           onChange={handleChange}
         />
-        <label for='L1.1'> Requirement Leadership1.1 (L1.1) </label> <br />
+        <label for='L1.1'>&nbsp; Leadership1.1 (L1.1) </label> <br />
         <input
           type='checkbox'
           id='L1.2'
           name='L1.2'
-          value='1'
+          value='12'
           onChange={handleChange}
         />
-        <label for='L1.1'>Requirement Leadership1.2 (L1.2) </label>
+        <label for='L1.1'>&nbsp; Leadership1.2 (L1.2) </label>
         <br />
         <input
           type='checkbox'
           id='L1.3'
           name='L1.3'
-          value='0'
+          value='13'
           onChange={handleChange}
         />
-        <label for='L1.3'> Requirement Leadership1.3 (L1.3)</label>
+        <label for='L1.3'>&nbsp; Leadership1.3 (L1.3)</label>
         <br />
         <input
           type='checkbox'
           id='L1.4'
           name='L1.4'
-          value='0'
+          value='14'
           onChange={handleChange}
         />
-        <label for='L1.4'>Requirement Leadership1.4 (L1.4)</label>
+        <label for='L1.4'>&nbsp; Leadership1.4 (L1.4)</label>
         <br />
         <input
           type='checkbox'
           id='L1.5'
           name='L1.5'
-          value='0'
+          value='15'
           onChange={handleChange}
         />
-        <label for='L1.5'>Requirement Leadership1.5 (L1.5)</label>
+        <label for='L1.5'>&nbsp; Leadership1.5 (L1.5)</label>
         <br />
+        <button type='submit'>Update Leadership 1</button>
+        <span>
+          {' '}
+          <button disabled>Send Badge</button>
+        </span>
       </form>
-      <button type='submit'>
-        Update this student's requirements in the database
-      </button>
-      <button>Send Leadership 1 badge to student</button>
     </div>
   );
 }
