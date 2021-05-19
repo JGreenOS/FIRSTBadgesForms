@@ -7,6 +7,7 @@ function LeadershipOne(props) {
     req_ids: [],
   });
   const [submitting, setSubmitting] = useState(false);
+  const [alert, setAlert] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,7 +19,7 @@ function LeadershipOne(props) {
           req_id: req_id,
         })
         .then((res) => {
-          console.log(res);
+          setAlert(true);
           setSubmitting(false);
         })
         .catch((err) => console.log(err));
@@ -39,12 +40,10 @@ function LeadershipOne(props) {
 
   return (
     <div>
-      <h4 className='email-prop'>
-        <b>Student Email: {props.email}</b>
-      </h4>
       <form
         style={{ textAlign: 'center', maxWidth: '400px' }}
         onSubmit={handleSubmit}
+        id='whatever'
       >
         <div>
           <h4>Leadership</h4>
@@ -93,11 +92,19 @@ function LeadershipOne(props) {
         />
         <label for='L1.5'>&nbsp; Leadership1.5 (L1.5)</label>
         <br />
-        <button type='submit'>Update Leadership 1</button>
+        <button type='submit'>Add Requirements</button>
         <span>
           {' '}
           <button disabled>Send Badge</button>
         </span>
+        <span>
+          <button onClick={props.handleReset}>Reset</button>
+        </span>
+        {alert && (
+          <p>
+            <b> Successfully Entered into Database!</b>
+          </p>
+        )}
       </form>
     </div>
   );

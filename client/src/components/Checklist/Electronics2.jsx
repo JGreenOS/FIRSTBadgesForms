@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './style.css';
 
-function LeadershipTwo(props) {
+function ElectronicsTwo(props) {
   const [state, setState] = useState({
     req_ids: [],
   });
@@ -47,47 +46,47 @@ function LeadershipTwo(props) {
       >
         <input
           type='checkbox'
-          id='L2.1'
-          name='L2.1'
-          value='16'
+          id='E2.1'
+          name='E2.1'
+          value='6'
           onChange={handleChange}
         />
-        <label for='L2.1'>&nbsp; Leadership2.1 (L2.1) </label> <br />
+        <label for='E2.1'>&nbsp; Electronics2.1 (E2.1) </label> <br />
         <input
           type='checkbox'
-          id='L2.2'
-          name='L2.2'
-          value='17'
+          id='E2.2'
+          name='E2.2'
+          value='7'
           onChange={handleChange}
         />
-        <label for='L2.1'>&nbsp; Leadership2.2 (L2.2) </label>
+        <label for='E2.1'>&nbsp; Electronics2.2 (E2.2) </label>
         <br />
         <input
           type='checkbox'
-          id='L2.3'
-          name='L2.3'
-          value='18'
+          id='E2.3'
+          name='E2.3'
+          value='8'
           onChange={handleChange}
         />
-        <label for='L2.3'>&nbsp; Leadership2.3 (L2.3)</label>
+        <label for='E2.3'>&nbsp; Electronics2.3 (E2.3)</label>
         <br />
         <input
           type='checkbox'
-          id='L2.4'
-          name='L2.4'
-          value='19'
+          id='E2.4'
+          name='E2.4'
+          value='9'
           onChange={handleChange}
         />
-        <label for='L2.4'>&nbsp; Leadership2.4 (L2.4)</label>
+        <label for='E2.4'>&nbsp; Electronics2.4 (E2.4)</label>
         <br />
         <input
           type='checkbox'
-          id='L2.5'
-          name='L2.5'
-          value='20'
+          id='E2.5'
+          name='E2.5'
+          value='10'
           onChange={handleChange}
         />
-        <label for='L2.5'>&nbsp; Leadership2.5 (L2.5)</label>
+        <label for='E2.5'>&nbsp; Electronics2.5 (E2.5)</label>
         <br />
         <button type='submit'>Add Requirements</button>
         <span>
@@ -106,4 +105,4 @@ function LeadershipTwo(props) {
   );
 }
 
-export default LeadershipTwo;
+export default ElectronicsTwo;
