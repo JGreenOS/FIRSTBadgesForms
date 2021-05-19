@@ -1,4 +1,5 @@
-# 
+# FIRST BADGES
+
 This project is a development effort for FIRST Badges located at FIRSTBadges.com to streamline the process to award badges to FIRST Robotics Competition teams. These badges are designed for participants to show their skills and competencies in a wide variety of areas encompassing STEM skills, 21st century "soft" skills and is integral to helping teams meet their goals for diversity, equity and inclusion.
 
 The badge requirements are established by a group of mentors in Michigan and are aligned to the Michigan curriculum standards and national frameworks.
@@ -39,17 +40,24 @@ Summarized project requirements:
 ### Visuals / Walkthrough
 Login page:
 
+![firstbadgesforms](/client/public/Assets/login.png)
 
 Requirements page:
 
+![firstbadgesforms](/client/public/Assets/req.png)
 
 Add Students:
 
-
+![firstbadgesforms](/client/public/Assets/studentlist.png)
 Student List:
 
 
+![firstbadgesforms](/client/public/Assets/studentlist.png)
+
 Mentor Dashboard: 
+
+
+![firstbadgesforms](/client/public/Assets/stats.png)
 
 ### Usage
 
