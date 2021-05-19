@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './style.css';
 
-function LeadershipOne(props) {
+function LeadershipTwo(props) {
   const [state, setState] = useState({
     req_ids: [],
   });
   const [submitting, setSubmitting] = useState(false);
+  const [alert, setAlert] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,7 +19,7 @@ function LeadershipOne(props) {
           req_id: req_id,
         })
         .then((res) => {
-          console.log(res);
+          setAlert(true);
           setSubmitting(false);
         })
         .catch((err) => console.log(err));
@@ -41,6 +43,7 @@ function LeadershipOne(props) {
       <form
         style={{ textAlign: 'center', maxWidth: '400px' }}
         onSubmit={handleSubmit}
+        className='whatever'
       >
         <input
           type='checkbox'
@@ -86,13 +89,21 @@ function LeadershipOne(props) {
         />
         <label for='L2.5'>&nbsp; Leadership2.5 (L2.5)</label>
         <br />
-        <button type='submit'>Update Leadership 2</button>
+        <button type='submit'>Add Requirements</button>
         <span>
           <button disabled>Send Badge</button>
         </span>
+        <span>
+          <button onClick={props.handleReset}>Reset</button>
+        </span>
+        {alert && (
+          <p>
+            <b> Successfully Entered into Database!</b>
+          </p>
+        )}
       </form>
     </div>
   );
 }
 
-export default LeadershipOne;
+export default LeadershipTwo;
