@@ -11,7 +11,7 @@
 
 .footer {
   margin: auto;
-  height: 75px;
+  background-clip: border-box;
   background-size: cover;
   background-repeat: no-repeat;
   background-color: lightgray;

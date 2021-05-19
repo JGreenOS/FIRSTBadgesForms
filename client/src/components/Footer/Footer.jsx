@@ -1,6 +1,7 @@
 import React from 'react'
 import './style.css'
 import headerimage from "../Images/headerimage.png";
+import { authorize } from 'passport';
 
 function Footer() {
     
@@ -8,8 +9,7 @@ function Footer() {
     return (
         <>
         <footer className="footer" style={{
-        backgroundImage: `url(${headerimage})`,
-            
+        backgroundImage: `url(${headerimage})`,            
             
         }}>
 
