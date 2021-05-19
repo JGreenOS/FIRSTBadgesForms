@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Ele2 from '../Images/ele2.svg';
 
 function ElectronicsTwo(props) {
   const [state, setState] = useState({
@@ -44,6 +45,13 @@ function ElectronicsTwo(props) {
         onSubmit={handleSubmit}
         className='whatever'
       >
+        <div>
+          <img
+            src={Ele2}
+            alt='Ele2'
+            style={{ maxWidth: '100px', maxHeight: '100px' }}
+          />
+        </div>
         <input
           type='checkbox'
           id='E2.1'
