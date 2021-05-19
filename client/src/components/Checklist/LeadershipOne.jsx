@@ -48,7 +48,7 @@ function LeadershipOne(props) {
       >
         <div>
           <h4>Leadership</h4>
-          <img src={badgelogoL1}/>
+          <img src={badgelogoL1} alt='ldrship1' style={{maxWidth: '100px', maxHeight: '100px'}}/>
         </div>
         <input
           type='checkbox'

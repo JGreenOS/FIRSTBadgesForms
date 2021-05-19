@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-import badgelogoL2 from '../Images/Leadership2Sample.png'
+import badgelogoL2 from '../Images/Leadership2Sample.png';
 import './style.css';
 
 function LeadershipTwo(props) {
@@ -42,12 +42,18 @@ function LeadershipTwo(props) {
 
   return (
     <div>
-      <img src={badgelogoL2} />
       <form
         style={{ textAlign: 'center', maxWidth: '400px' }}
         onSubmit={handleSubmit}
         className='whatever'
       >
+        <div>
+          <img
+            src={badgelogoL2}
+            alt='ldrship2'
+            style={{ maxWidth: '100px', maxHeight: '100px' }}
+          />
+        </div>
         <input
           type='checkbox'
           id='L2.1'
