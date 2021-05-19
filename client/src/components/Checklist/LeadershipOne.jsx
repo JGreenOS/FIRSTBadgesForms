@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './style.css';
+import badgelogoL1 from '../Images/Leadership1Sample.png';
 
 function LeadershipOne(props) {
   const [state, setState] = useState({
@@ -48,6 +49,7 @@ function LeadershipOne(props) {
       >
         <div>
           <h4>Leadership</h4>
+          <img src={badgelogoL1}/>
         </div>
         <input
           type='checkbox'

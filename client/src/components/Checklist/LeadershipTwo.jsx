@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import badgelogoL2 from '../Images/Leadership2Sample.png'
 
 function LeadershipOne(props) {
   const [state, setState] = useState({
@@ -38,6 +39,7 @@ function LeadershipOne(props) {
 
   return (
     <div>
+      <img src={badgelogoL2} />
       <form
         style={{ textAlign: 'center', maxWidth: '400px' }}
         onSubmit={handleSubmit}
