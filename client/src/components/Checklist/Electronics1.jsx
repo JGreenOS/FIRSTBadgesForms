@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Ele1 from '../Images/ele1.svg';
 
 function ElectronicsOne(props) {
   const [state, setState] = useState({
@@ -44,6 +45,13 @@ function ElectronicsOne(props) {
         onSubmit={handleSubmit}
         className='whatever'
       >
+        <div>
+          <img
+            src={Ele1}
+            alt='ele1'
+            style={{ maxWidth: '100px', maxHeight: '100px' }}
+          />
+        </div>
         <div>
           <h4>Electronics</h4>
         </div>
