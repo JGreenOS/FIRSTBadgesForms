@@ -46,14 +46,14 @@ function ElectronicsOne(props) {
         className='whatever'
       >
         <div>
+          <h4>Electronics</h4>
+        </div>
+        <div>
           <img
             src={Ele1}
             alt='ele1'
             style={{ maxWidth: '100px', maxHeight: '100px' }}
           />
-        </div>
-        <div>
-          <h4>Electronics</h4>
         </div>
         <input
           type='checkbox'
