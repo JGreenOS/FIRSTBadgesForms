@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './style.css';
-import badgelogoL1 from '../Images/Leadership1Sample.png';
 
-function LeadershipOne(props) {
+function ElectronicsTwo(props) {
   const [state, setState] = useState({
     req_ids: [],
   });
@@ -46,57 +44,52 @@ function LeadershipOne(props) {
         onSubmit={handleSubmit}
         className='whatever'
       >
-        <div>
-          <h4>Leadership</h4>
-          <img src={badgelogoL1}/>
-        </div>
         <input
           type='checkbox'
-          id='L1.1'
-          name='L1.1'
-          value='11'
+          id='E2.1'
+          name='E2.1'
+          value='6'
           onChange={handleChange}
         />
-        <label for='L1.1'>&nbsp; Leadership1.1 (L1.1) </label> <br />
+        <label for='E2.1'>&nbsp; Electronics2.1 (E2.1) </label> <br />
         <input
           type='checkbox'
-          id='L1.2'
-          name='L1.2'
-          value='12'
+          id='E2.2'
+          name='E2.2'
+          value='7'
           onChange={handleChange}
         />
-        <label for='L1.1'>&nbsp; Leadership1.2 (L1.2) </label>
+        <label for='E2.1'>&nbsp; Electronics2.2 (E2.2) </label>
         <br />
         <input
           type='checkbox'
-          id='L1.3'
-          name='L1.3'
-          value='13'
+          id='E2.3'
+          name='E2.3'
+          value='8'
           onChange={handleChange}
         />
-        <label for='L1.3'>&nbsp; Leadership1.3 (L1.3)</label>
+        <label for='E2.3'>&nbsp; Electronics2.3 (E2.3)</label>
         <br />
         <input
           type='checkbox'
-          id='L1.4'
-          name='L1.4'
-          value='14'
+          id='E2.4'
+          name='E2.4'
+          value='9'
           onChange={handleChange}
         />
-        <label for='L1.4'>&nbsp; Leadership1.4 (L1.4)</label>
+        <label for='E2.4'>&nbsp; Electronics2.4 (E2.4)</label>
         <br />
         <input
           type='checkbox'
-          id='L1.5'
-          name='L1.5'
-          value='15'
+          id='E2.5'
+          name='E2.5'
+          value='10'
           onChange={handleChange}
         />
-        <label for='L1.5'>&nbsp; Leadership1.5 (L1.5)</label>
+        <label for='E2.5'>&nbsp; Electronics2.5 (E2.5)</label>
         <br />
         <button type='submit'>Add Requirements</button>
         <span>
-          {' '}
           <button disabled>Send Badge</button>
         </span>
         <span>
@@ -112,4 +105,4 @@ function LeadershipOne(props) {
   );
 }
 
-export default LeadershipOne;
+export default ElectronicsTwo;
