@@ -19,11 +19,14 @@ const StuForm = (props) => {
   };
 
   const handleReset = (event) => {
-    let formToReset = document.getElementById('whatever');
-    let checkboxes = formToReset.getElementsByTagName('input');
-    for (let i = 0; i < checkboxes.length; i++) {
-      console.log(checkboxes[i].checked);
-      checkboxes[i].checked = false;
+    let formToReset = document.getElementsByClassName('whatever');
+    console.log(formToReset);
+    for (let j = 0; j < formToReset.length; j++) {
+      let checkboxes = formToReset[j].getElementsByTagName('input');
+      for (let i = 0; i < checkboxes.length; i++) {
+        console.log(checkboxes[i].checked);
+        checkboxes[i].checked = false;
+      }
     }
   };
 
@@ -49,13 +52,18 @@ const StuForm = (props) => {
     <>
       <Container fluid>
         <Row>
-          <div style={{ marginLeft: '33%', width: '400px' }}>
+          <div
+            style={{
+              textAlign: 'center',
+              width: '100%',
+            }}
+          >
             <Form
               onSubmit={handleSubmit}
+              className='form-group'
               style={{
-                maxWidth: '200px',
-                display: 'flex',
-                justifyContent: 'center',
+                textAlign: 'center',
+                padding: '5%',
               }}
             >
               <Form.Group controlId='studentSearch'>
@@ -65,6 +73,9 @@ const StuForm = (props) => {
                   type='email'
                   name='email'
                   placeholder='Enter email'
+                  style={{
+                    width: '100%',
+                  }}
                 />
               </Form.Group>
             </Form>

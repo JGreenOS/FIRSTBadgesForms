@@ -42,6 +42,7 @@ function ElectronicsOne(props) {
       <form
         style={{ textAlign: 'center', maxWidth: '400px' }}
         onSubmit={handleSubmit}
+        className='whatever'
       >
         <div>
           <h4>Electronics</h4>

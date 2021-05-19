@@ -43,7 +43,7 @@ function LeadershipOne(props) {
       <form
         style={{ textAlign: 'center', maxWidth: '400px' }}
         onSubmit={handleSubmit}
-        id='whatever'
+        className='whatever'
       >
         <div>
           <h4>Leadership</h4>
