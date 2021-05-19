@@ -20,8 +20,16 @@ module.exports = (app) => {
     db.StudentReqRecords.create({
       email: req.body.email,
       req_id: req.body.req_id,
-      date_received: req.body.date_received,
+      date_received: '2021-05-18',
     }).then((stuReqPost) => res.json(stuReqPost));
+  });
+
+  app.put('/api/updatereqs', (req, res) => {
+    db.StudentReqRecords.update(req.body, {
+      where: {
+        req_id: req.body.req_id,
+      },
+    }).then((updateReq) => res.json(updateReq));
   });
 
   //GET
@@ -88,13 +96,6 @@ module.exports = (app) => {
   });
 
   //UPDATE
-  app.put('/api/updatereqs', (req, res) => {
-    db.StudentReqRecords.update(req.body, {
-      where: {
-        req_id: req.body.req_id,
-      },
-    }).then((updateReq) => res.json(updateReq));
-  });
 
   //PASSPORT SIGN IN LOGIN LOGOUT
   //SIGNUP

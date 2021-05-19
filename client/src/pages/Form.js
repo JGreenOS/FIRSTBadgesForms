@@ -6,7 +6,6 @@ import LeadershipTwo from '../components/Checklist/LeadershipTwo.jsx';
 import AddStudents from '../components/AddStudents/AddStudents.jsx';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 
 const StuForm = (props) => {
   const [state, setState] = useState({
@@ -39,27 +38,31 @@ const StuForm = (props) => {
     <>
       <Container fluid>
         <Row>
-          <Form onSubmit={handleSubmit}>
+          <Form
+            onSubmit={handleSubmit}
+            style={{
+              maxWidth: '200px',
+              display: 'flex',
+              justifyContent: 'center',
+            }}
+          >
             <Form.Group controlId='studentSearch'>
               <Form.Control
                 onChange={handleChange}
-                value={state.value}
+                value={state.email}
                 type='email'
                 name='email'
                 placeholder='Enter email'
               />
-              <span>
-                <Button type='submit' style={{ margin: '2px' }}>
-                  Search
-                </Button>
-              </span>
             </Form.Group>
           </Form>
         </Row>
-        <LeadershipOne {...state} />
-        <br />
-        <LeadershipTwo />
-        <br />
+        <Col size='md-6'>
+          <LeadershipOne {...state} />
+          <br />
+          <LeadershipTwo {...state} />
+          <br />
+        </Col>
         <Row>
           <Col size='md-12' className='form-control'>
             <AddStudents />

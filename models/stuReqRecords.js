@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       date_received: {
-        type: DataTypes.STRING,
+        type: DataTypes.DATEONLY,
         allowNull: false,
         validate: {
           len: [1, 30],
