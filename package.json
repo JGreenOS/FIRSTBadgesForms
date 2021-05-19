@@ -23,6 +23,7 @@
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.0.0",
+    "chart.js": "^3.2.1",
     "cors": "^2.8.5",
     "dotenv": "^9.0.1",
     "express": "^4.17.1",
@@ -38,6 +39,7 @@
     "passport-local": "^1.0.0",
     "popper.js": "^1.16.1",
     "react-bootstrap": "^1.5.2",
+    "react-chartjs-2": "^3.0.3",
     "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0",
     "sequelize": "^6.6.2"

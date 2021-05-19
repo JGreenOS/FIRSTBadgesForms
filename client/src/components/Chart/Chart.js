@@ -9,6 +9,7 @@ class Chart extends Component {
     super(props);
     this.state = {
       team_number: '',
+      req_id: '',
       Badge_Name: '',
       students: [],
       chartData: {
@@ -48,6 +49,7 @@ class Chart extends Component {
         },
       })
       .then((res) => {
+        console.log(res);
         const chartMaker = res.data.items;
         let newLabels = [];
         chartMaker.forEach((element) => {
@@ -65,7 +67,7 @@ class Chart extends Component {
             datasets: [
               {
                 label: 'Students',
-                data: [5, 3, 2],
+                data: [18, 15, 4, 12, 9, 8, 17],
                 backgroundColor: [
                   'rgba(255, 99, 132, 0.6)',
                   'rgba(54, 162, 235, 0.6)',
