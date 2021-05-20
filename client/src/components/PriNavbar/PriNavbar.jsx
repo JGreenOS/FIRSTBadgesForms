@@ -8,7 +8,7 @@ export default function PriNavbar(props) {
   const [redirect, setRedirect] = useState(false);
 
   const handleLogout = (event) => {
-    axios.get('http://localhost:8080/logout').then((res) => {
+    axios.get('/logout').then((res) => {
       setRedirect(true);
       localStorage.setItem('user', false);
       props.setUser(false);

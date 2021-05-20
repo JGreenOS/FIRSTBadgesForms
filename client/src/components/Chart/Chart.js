@@ -42,7 +42,7 @@ class Chart extends Component {
     console.log(this.state.team_number);
     const teamInt = parseInt(numberString, 10);
     axios
-      .get('http://localhost:8080/api/stats', {
+      .get('/api/stats', {
         params: {
           team_number: teamInt,
         },

@@ -33,7 +33,7 @@ const StuForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .get('http://localhost:8080/api/form/getstudent', {
+      .get('/api/form/getstudent', {
         params: {
           email: state.email,
         },

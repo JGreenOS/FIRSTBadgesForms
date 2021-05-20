@@ -19,7 +19,7 @@ const SignIn = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post('http://localhost:8080/api/login', {
+      .post('/api/login', {
         username: state.email,
         password: state.password,
       })
