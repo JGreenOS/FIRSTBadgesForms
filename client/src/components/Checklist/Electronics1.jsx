@@ -14,7 +14,7 @@ function ElectronicsOne(props) {
     setSubmitting(true);
     state.req_ids.forEach((req_id) => {
       axios
-        .post('http://localhost:8080/api/form/sturequirements', {
+        .post('/api/form/sturequirements', {
           email: props.email,
           req_id: req_id,
         })

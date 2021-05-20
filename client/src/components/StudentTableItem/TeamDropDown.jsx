@@ -24,7 +24,7 @@ class TeamDropDown extends Component {
     console.log(this.state.team_number);
     const teamInt = parseInt(numberString, 10);
     axios
-      .get('http://localhost:8080/api/teamprofile', {
+      .get('/api/teamprofile', {
         params: {
           team_number: teamInt,
         },

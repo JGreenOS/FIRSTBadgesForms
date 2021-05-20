@@ -30,7 +30,7 @@ class AddStudents extends Component {
     };
     console.log(userData);
     axios
-      .post('http://localhost:8080/api/form/newstudent', {
+      .post('/api/form/newstudent', {
         first_name: this.state.first_name,
         last_name: this.state.last_name,
         email: this.state.email,

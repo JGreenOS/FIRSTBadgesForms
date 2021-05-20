@@ -21,7 +21,7 @@ const NewUser = (props) => {
     event.preventDefault();
     console.log(state);
     axios
-      .post('http://localhost:8080/api/signup', {
+      .post('/api/signup', {
         email: state.email,
         password: state.password,
       })
